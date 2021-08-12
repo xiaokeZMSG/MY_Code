@@ -1,0 +1,21 @@
+---- _RIIC_MASTER_RECEIVES_RESTART Matches (3 in 2 files) ----
+r_cg_riic.h (cg_src) line 304 : 
+#define _RIIC_MASTER_TRANSMIT                    (0x0DU) /* Master transmit mode */
+#define _RIIC_MASTER_RECEIVES_RESTART            (0x0EU) /* Master receive restarting */
+
+/* Slave State Flags */
+#define _RIIC_SLAVE_RECEIVES_DATA                (0x10U) /* Slave receiving data */
+r_riic0_transmit_interrupt in r_cg_riic_user.c (cg_src) : 
+            RIIC0.DRT.UINT32 = (uint8_t)(g_riic0_slave_address &  _RIIC_ADDRESS_10BIT_LOWER);
+            g_riic0_state = _RIIC_MASTER_RECEIVES_RESTART;
+        }
+        else if (g_riic0_state == _RIIC_MASTER_RECEIVES_RESTART)
+        {
+            RIIC0.IER.UINT32 |= _RIIC_START_CONDITION_INT_ENABLE;
+            /* Set restart condition flag */
+r_riic0_error_interrupt in r_cg_riic_user.c (cg_src) : 
+        }
+        else if (g_riic0_state == _RIIC_MASTER_RECEIVES_RESTART)
+        {
+            RIIC0.SR2.UINT32 &= (uint32_t) ~_RIIC_START_CONDITION_DETECTED;
+            RIIC0.IER.UINT32 &= (uint32_t) ~_RIIC_START_CONDITION_INT_ENABLE;

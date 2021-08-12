@@ -1,0 +1,49 @@
+---- g_riic0_mode_flag Matches (8 in 2 files) ----
+r_cg_riic.c line 51 : 
+***********************************************************************************************************************/
+volatile uint8_t          g_riic0_mode_flag;               /* RIIC0 master transmit receive flag */
+volatile uint8_t          g_riic0_state;                   /* RIIC0 state */
+volatile uint16_t         g_riic0_slave_address;           /* RIIC0 slave address */
+volatile const uint8_t *  gp_riic0_tx_address;             /* RIIC0 transmit buffer address */
+R_RIIC0_Master_Send in r_cg_riic.c : 
+        g_riic0_slave_address = adr;
+        g_riic0_mode_flag = _RIIC_MASTER_TRANSMIT;
+        
+        if (adr <= _RIIC_ADDRESS_7BIT)
+        {
+R_RIIC0_Master_Receive in r_cg_riic.c : 
+        g_riic0_dummy_read_count = 0U;
+        g_riic0_mode_flag = _RIIC_MASTER_RECEIVE;
+
+        if (adr <= _RIIC_ADDRESS_7BIT)
+        {
+r_cg_riic_user.c line 51 : 
+***********************************************************************************************************************/
+extern volatile uint8_t          g_riic0_mode_flag;               /* RIIC0 master transmit receive flag */
+extern volatile uint8_t          g_riic0_state;                   /* RIIC0 master state */
+extern volatile uint16_t         g_riic0_slave_address;           /* RIIC0 slave address */
+extern volatile const uint8_t *  gp_riic0_tx_address;             /* RIIC0 transmit buffer address */
+r_riic0_transmit_interrupt in r_cg_riic_user.c : 
+{
+    if (g_riic0_mode_flag == _RIIC_MASTER_TRANSMIT)
+    {
+        if (g_riic0_state == _RIIC_MASTER_SENDS_ADR_7_W)
+        {
+r_riic0_transmit_interrupt in r_cg_riic_user.c : 
+    }
+    else if (g_riic0_mode_flag == _RIIC_MASTER_RECEIVE)
+    {
+        if (g_riic0_state == _RIIC_MASTER_SENDS_ADR_7_R)
+        {
+r_riic0_error_interrupt in r_cg_riic_user.c : 
+    }
+    else if (g_riic0_mode_flag == _RIIC_MASTER_TRANSMIT)
+    {
+        if ((g_riic0_state == _RIIC_MASTER_SENDS_ADR_7_W) || (g_riic0_state == _RIIC_MASTER_SENDS_ADR_10A_W))
+        {
+r_riic0_error_interrupt in r_cg_riic_user.c : 
+    }
+    else if (g_riic0_mode_flag == _RIIC_MASTER_RECEIVE)
+    {
+        if ((g_riic0_state == _RIIC_MASTER_SENDS_ADR_7_R) || (g_riic0_state == _RIIC_MASTER_SENDS_ADR_10A_W))
+        {

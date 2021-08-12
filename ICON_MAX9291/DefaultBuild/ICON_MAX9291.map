@@ -1,0 +1,58 @@
+Renesas Optimizing Linker (V2.07.00 )             09-Aug-2021 15:29:39
+
+*** Options ***
+
+-subcommand=DefaultBuild\ICON_MAX9291.clnk
+-input=DefaultBuild\boot.obj
+-input=DefaultBuild\cstart.obj
+-input=DefaultBuild\main.obj
+-input=DefaultBuild\r_cg_main.obj
+-input=DefaultBuild\r_cg_intvector.obj
+-input=DefaultBuild\r_cg_systeminit.obj
+-input=DefaultBuild\r_cg_cgc.obj
+-input=DefaultBuild\r_cg_cgc_user.obj
+-input=DefaultBuild\r_cg_port.obj
+-input=DefaultBuild\r_cg_port_user.obj
+-input=DefaultBuild\r_cg_riic.obj
+-input=DefaultBuild\r_cg_riic_user.obj
+-debug
+-nocompress
+-output=DefaultBuild\ICON_MAX9291.abs
+-library=v850e3v5\rhf4n.lib
+-library=v850e3v5\libmalloc.lib
+-list=DefaultBuild\ICON_MAX9291.map
+-start=RESET,EIINTTBL/0,.const,.INIT_DSEC.const,.INIT_BSEC.const,.text,.data/00008000,.data.R,.bss,.stack.bss/FEDE8000
+-rom=.data=.data.R
+-memory=high
+-nologo
+-end
+
+*** Error information ***
+
+W0561120:Section address is not assigned to "EIINTTBL.const"
+
+*** Mapping List ***
+
+SECTION                            START      END         SIZE   ALIGN
+RESET
+                                  00000000  000001f7       1f8   200
+EIINTTBL
+                                  00000200  000009ff       800   200
+.const
+                                  00008000  00008000         0   4
+.INIT_DSEC.const
+                                  00008000  0000800b         c   4
+.INIT_BSEC.const
+                                  0000800c  00008013         8   4
+.text
+                                  00008014  00009405      13f2   2
+.data
+                                  00009408  0000950d       106   4
+.data.R
+                                  fede8000  fede8105       106   4
+.bss
+                                  fede8108  fede8120        19   4
+.stack.bss
+                                  fede8124  fede8323       200   4
+EIINTTBL.const
+                                  fede8324  fede88bb       598   4
