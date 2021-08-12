@@ -1,0 +1,46 @@
+#ifndef __DIO_CFG_H
+#define __DIO_CFG_H
+
+#include "Dio.h"
+#define DIO_CHANNELID_ACC             2
+
+#define DIO_CHANNELID_CAN1_WAKEUP     4
+#define DIO_CHANNELID_CAN1_EN         12
+#define DIO_CHANNELID_CAN1_STBY       39
+#define DIO_CHANNELID_CAN0_STBY       38
+#define DIO_CHANNELID_CAN0_EN         13
+
+
+#define DIO_CHANNELID_AMPLIFY_PWREN   66
+#define DIO_CHANNELID_WIFI_PWREN      72
+#define DIO_CHANNELID_MIC_PWREN       31
+#define DIO_CHANNELID_5V_EN           71
+
+
+
+#define DIO_CHANNELID_3G_PWREN        28
+#define DIO_CHANNELID_3G_WAKEUP       30
+#define DIO_CHANNELID_3G_RESET        6
+
+#define DIO_CHANNELID_BATT_SWCH       63
+#define DIO_CHANNELID_MIC_SWCH        62
+
+
+#define DIO_CHANNELID_GPS_WAKEUP      61
+#define DIO_CHANNELID_GPS_STBY        37
+
+
+
+#define DIO_CHANNELID_BCALL_LED       29
+#define DIO_CHANNELID_SOS_LED         70
+
+
+
+
+#define DIO_CHANNELID_BATT_HEALTH_DET 7
+#define DIO_CHANNELID_CHARGE_CTRL     9
+#define DIO_CHANNELID_CHARGE_EN       5
+#define DIO_CHANNELID_CHARGE_PWM      65
+
+
+#endif 

@@ -1,0 +1,11 @@
+#!gbuild
+[Subproject]
+dr7f701587_0.h
+dr7f701587.ld
+dr7f701587_irq.h
+dr7f701587_startup.850
+r_device.h
+r_typedefs.h
+icu_feret.h
+io_macros_v2.h
+cpu.h

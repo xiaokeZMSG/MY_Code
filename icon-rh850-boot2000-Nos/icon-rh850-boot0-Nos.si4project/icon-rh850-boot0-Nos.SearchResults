@@ -1,0 +1,4 @@
+---- __EI() Matches (3 in 3 files) ----
+Can_Isr_Rx in Can.c (modules\can) :         __EI();
+main in main.c :     __EI();
+osal.h (osal) line 102 : #define portENABLE_INTERRUPTS()	 __EI()
